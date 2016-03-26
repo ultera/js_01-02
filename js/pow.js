@@ -21,7 +21,7 @@ function main() {
 		if ( (errNumber = isNumeric(inputStr) ) != 0 || ( errNumber = isInteger(inputStr) ) != 0) {
 			alert(errors[errNumber]);
 			return;
-		} else argumentsPow[i] = inputStr;
+		} else argumentsPow[i] = Number(inputStr);
 	}
 
 	console.log(argumentsPow[0] + ' ^ ' + argumentsPow[1] + ' = ' + pow(argumentsPow[0], argumentsPow[1]) );
@@ -44,7 +44,8 @@ function pow(x, n) {
   var exponent = Math.abs(n);
   for (var i = 1; i < exponent; i++) result *= x;
   if (n > 0) return result
-  	else if (n < 0) return (1/result);
+  	else if (n < 0 && result) return (1/result)
+  		else {console.log('что-то не так');}
   return 1;
 }
 
